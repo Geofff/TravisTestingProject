@@ -40,7 +40,7 @@ def gtest_results(bld):
 def build(bld):
     bld.program(
         features='test',
-        source='passing_test.cc failing_test.cc',
+        source='passing_test.cc',
         target='unit_test',
         use='GTEST_MAIN GTEST PTHREAD'
     )
