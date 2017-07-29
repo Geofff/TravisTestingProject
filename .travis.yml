@@ -1,0 +1,14 @@
+language: cpp
+os:
+  - linux
+compiler:
+  - g++
+notifications:
+  email:
+    on_success: always
+    on_failure: always
+before_install:
+  - travis_retry sudo apt-get update
+  - travis_retry sudo apt-get install -qq libgtest-dev 
+script:
+  - python3 waf configure build
