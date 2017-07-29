@@ -1,0 +1,23 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+
+def options(opt):
+	opt.load('compiler_cxx')
+
+def configure(conf):
+	conf.load('compiler_cxx')
+	conf.env.CPPLINT_BREAK = 6;
+	
+
+def build(bld):
+	# CXXFLAGS=['-Wall', '-Wuninitialized', '-ggdb', '-g', '-std=c++14']
+	CXXFLAGS=['-ggdb', '-g', '-std=c++14']
+
+	bld.program(
+		# features='cpplint',
+		source='main.cc',
+		target='TravisTest',
+		includes='.',
+		cxxflags=CXXFLAGS
+	)
