@@ -3,6 +3,7 @@
 # Roman C. Podolski <mailto:roman.podolski@tum.de>
 
 from waflib import Logs
+from waflib.Tools import waf_unit_test 
 
 def options(opt):
     opt.load('waf_unit_test')
@@ -43,6 +44,7 @@ def build(bld):
         target='unit_test',
         use='GTEST_MAIN GTEST PTHREAD'
     )
+    bld.add_post_fun(waf_unit_test.set_exit_code)
 
     bld.add_post_fun(gtest_results)
     bld.options.all_tests = True
